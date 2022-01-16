@@ -1,3 +1,7 @@
+/**
+ * @param {Number} number the number
+ * @returns the number and suffix
+ */
 function ordinal(number) {
    const englishOrdinalRules = new Intl.PluralRules("en", {
       type: "ordinal"
