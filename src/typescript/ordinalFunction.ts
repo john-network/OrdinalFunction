@@ -1,14 +1,16 @@
-export function ordinal(n: number) {
+interface Suffixes {
+   one: string;
+   two: string;
+   few: string;
+   many?: string;
+   zero?: string;
+   other: string;
+}
+
+export function ordinal(len: number) {
    const ordinalRules = new Intl.PluralRules("en", {
       type: "ordinal",
    });
-   
-   interface Suffixes {
-      one: string;
-      two: string;
-      few: string;
-      other: string;
-   }
 
    const suffixes: Suffixes = {
       one: "st",
@@ -17,6 +19,6 @@ export function ordinal(n: number) {
       other: "th",
    };
 
-   const suffix = suffixes[ordinalRules.select(n)];
-   return (n + suffix);
+   const suffix = suffixes[ordinalRules.select(len)];
+   return (len + suffix);
 }
