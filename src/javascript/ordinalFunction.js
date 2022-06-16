@@ -3,7 +3,7 @@
  * @returns the number and suffix
  */
 function ordinal(len) {
-   const englishOrdinalRules = new Intl.PluralRules("en", {
+   const pluralRules = new Intl.PluralRules("en", {
       type: "ordinal"
    });
 
@@ -14,6 +14,6 @@ function ordinal(len) {
       other: "th"
    }
 
-   const suffix = suffixes[englishOrdinalRules.select(len)];
+   const suffix = suffixes[pluralRules.select(len)];
    return (len + suffix);
 }
