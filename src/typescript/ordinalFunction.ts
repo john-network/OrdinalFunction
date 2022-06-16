@@ -8,7 +8,7 @@ interface Suffixes {
 }
 
 export function ordinal(len: number) {
-   const ordinalRules = new Intl.PluralRules("en", {
+   const pluralRules = new Intl.PluralRules("en", {
       type: "ordinal",
    });
 
@@ -19,6 +19,6 @@ export function ordinal(len: number) {
       other: "th",
    };
 
-   const suffix = suffixes[ordinalRules.select(len)];
+   const suffix = suffixes[pluralRules.select(len)];
    return (len + suffix);
 }
