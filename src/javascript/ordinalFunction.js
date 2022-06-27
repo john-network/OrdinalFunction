@@ -1,8 +1,8 @@
 /**
- * @param {Number} len the number
- * @returns the number and suffix
+ * @param {number} counting
+ * @returns the number and the suffix
  */
-function ordinal(len) {
+function generateOrdinal(counting) {
    const pluralRules = new Intl.PluralRules("en", {
       type: "ordinal"
    });
@@ -14,6 +14,6 @@ function ordinal(len) {
       other: "th"
    }
 
-   const suffix = suffixes[pluralRules.select(len)];
-   return (len + suffix);
+   const suffix = suffixes[pluralRules.select(counting)];
+   return (counting + suffix);
 }
