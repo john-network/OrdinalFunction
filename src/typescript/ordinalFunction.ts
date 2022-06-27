@@ -1,13 +1,13 @@
 interface Suffixes {
+   zero?: string;
    one: string;
    two: string;
    few: string;
    many?: string;
-   zero?: string;
    other: string;
 }
 
-export function ordinal(len: number) {
+function generateOrdinal(counting: number) {
    const pluralRules = new Intl.PluralRules("en", {
       type: "ordinal",
    });
@@ -19,6 +19,6 @@ export function ordinal(len: number) {
       other: "th",
    };
 
-   const suffix = suffixes[pluralRules.select(len)];
-   return (len + suffix);
+   const suffix = suffixes[pluralRules.select(counting)];
+   return (counting + suffix);
 }
