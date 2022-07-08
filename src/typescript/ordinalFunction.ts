@@ -7,7 +7,7 @@ interface Suffixes {
    other: string;
 }
 
-function generateOrdinal(counting: number) {
+function getOrdinal(count: number) {
    const pluralRules = new Intl.PluralRules("en", {
       type: "ordinal",
    });
@@ -19,6 +19,6 @@ function generateOrdinal(counting: number) {
       other: "th",
    };
 
-   const suffix = suffixes[pluralRules.select(counting)];
-   return (counting + suffix);
+   const adjective = suffixes[pluralRules.select(count)];
+   return (count + adjective);
 }
